@@ -1,0 +1,18 @@
+version: '3.8'
+
+services:
+  postgres-db:
+    image: postgres:latest
+    container_name: postgres-profiles
+    environment:
+      POSTGRES_USER: admin_user
+      POSTGRES_PASSWORD: super_secret_pwd
+      POSTGRES_DB: identity_db
+    ports:
+      - "5433:5432"
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+    restart: always
+
+volumes:
+  pgdata:
